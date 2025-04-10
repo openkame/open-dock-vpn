@@ -1,4 +1,0 @@
-docker
-jinja2
-PySide6==6.8.3
-psutil
