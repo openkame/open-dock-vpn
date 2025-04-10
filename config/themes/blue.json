@@ -1,0 +1,80 @@
+{
+    "light": {
+        "default" : {
+            "background-color": "#E3F2FD",
+            "color": "#0D47A1",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #64B5F6",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "default:hover" : {
+            "background-color": "#DDDDDD"
+        },
+        "default:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        },
+        "default_button" : {
+            "background-color": "#E3F2FD",
+            "color": "#0D47A1",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #64B5F6",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "default_button:hover" : {
+            "background-color": "#DDDDDD"
+        },
+        "default_button:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+
+        }
+    },
+    "dark": {
+        "default" : {
+            "background-color": "#0D47A1",
+            "color": "#E3F2FD",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #64B5F6",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "default:hover" : {
+            "background-color": "#505050"
+        },
+        "default:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        },
+        "default_button" : {
+            "background-color": "#0D47A1",
+            "color": "#E3F2FD",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #64B5F6",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "default_button:hover" : {
+            "background-color": "#505050"
+        },
+        "default_button:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+
+        }
+    }
+}

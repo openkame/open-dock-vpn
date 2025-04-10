@@ -1,0 +1,592 @@
+{
+    "light": {
+        "default" : {
+            "background-color": "#F0F0F0",
+            "color": "#222222",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #CCCCCC",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "default:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        },
+        "root_window": {
+            "QWidget#central_frame": {
+                "background-color" : "#FFFFFF",
+                "border-radius": "10px"
+            },
+            "KRootWindow": {
+                "background-color": "transparent"
+            }
+        },
+        "status_bar": {
+            "QStatusBar": {
+                "background-color": "#E6E6E6",
+                "color": "#333333",
+                "font-family": "Segoe UI, Arial",
+                "padding": "6px 10px",
+                "border-top": "1px solid #CCCCCC",
+                "border-bottom-left-radius": "8px",
+                "border-bottom-right-radius": "8px",
+                "min-height": "20px"
+            },
+            "QStatusBar::item": {
+                "border": "none"                       
+            }
+        },
+        "tabber" : {
+            "background-color": "#FAFAFA",
+            "color": "#222222",
+            "font-size": "14px",
+            "QTabBar": {
+                "background-color": "#D0D0D0"
+            },
+            "QTabBar::tab:selected": {
+                "background-color": "#8888FF",
+                "color": "#FFFFFF"
+            },
+            "QScrollBar:vertical": {
+                "background-color": "#FAFAFA"
+            },
+            "QScrollBar::handle:vertical": {
+                "background-color": "#D0D0D0"
+            }
+        },
+        "tabber:hover": {
+            "background-color": "#EEEEEE"
+        },
+        "menu_bar" : {
+            "background-color": "#F0F0F0",
+            "color": "#222222",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #CCCCCC",
+            "border-top-left-radius": "8px",
+            "border-top-right-radius": "8px",
+            "padding": "6px",
+            "margin": "0px"
+        },
+        "menu_bar:hover" : {
+            "background-color": "#DDDDDD",
+            "border-top-left-radius": "8px",
+            "border-top-right-radius": "8px"
+        },
+        "menu_bar:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        },
+        "default_button" : {
+            "background-color": "#F0F0F0",
+            "color": "#222222",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #CCCCCC",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "0px"
+        },
+        "default_button:hover" : {
+            "background-color": "#DDDDDD"
+        },
+        "default_button:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        },
+        "default_checkbox" : {
+            "KCheckBox": {
+                "font-size": "13px",
+                "background-color": "#F8F9FA",
+                "color": "#222222",
+                "padding" : "0px"
+            },
+            "KCheckBox:hover" : {
+                "background-color": "#DDDDDD"
+            },
+            "KCheckBox:disabled" : {
+                "color": "rgba(0, 0, 0, 0.4)",
+                "background-color": "rgba(200, 200, 200, 0.5)",  
+                "opacity": 0.6
+            }
+        },
+        "default_combo": {
+            "QComboBox": {
+                "background-color": "#ffffff",
+                "color": "#222222",
+                "padding": "5px",
+                "border": "1px solid #999999",
+                "border-radius": "4px"
+            },
+            "QComboBox:hover": {
+                "border": "1px solid #666666"
+            },
+            "QComboBox:disabled": {
+                "background-color": "#dddddd",
+                "color": "#888888"
+            },
+            "QComboBox::drop-down": {
+                "subcontrol-origin": "padding",
+                "subcontrol-position": "top right",
+                "width": "20px",
+                "border-left": "1px solid #999999"
+            },
+            "QComboBox::down-arrow": {
+                "image": "url(config/icons/system-light-down-arrow.svg)"
+            },
+            "QComboBox QAbstractItemView": {
+                "background-color": "#ffffff",
+                "color": "#222222",
+                "border": "1px solid #999999",
+                "selection-background-color": "#007acc",
+                "selection-color": "#ffffff",
+                "outline": "none"
+            },
+            "QComboBox QAbstractItemView:item": {
+                "padding": "4px 8px"
+            },
+            "QComboBox QAbstractItemView:item:selected": {
+                "background-color": "#007acc",
+                "color": "#ffffff"
+            },
+            "QComboBox QAbstractItemView:item:hover": {
+                "background-color": "#e0f0ff"
+            }
+        },
+        "default_list": {
+            "QListWidget": {
+            "background-color": "#ffffff",
+            "color": "#222222",
+            "border": "1px solid #999999",
+            "border-radius": "5px",
+            "padding": "4px"
+            },
+            "QListWidget:focus": {
+                "border": "1px solid #007acc"
+            },
+            "QListWidget:item": {
+            "padding": "6px 12px",
+            "border": "none"
+            },
+            "QListWidget:item:selected": {
+            "background-color": "#007acc",
+            "color": "#ffffff"
+            },
+            "QListWidget:item:hover": {
+            "background-color": "#e0f0ff"
+            },
+            "QListWidget:disabled": {
+            "background-color": "#f0f0f0",
+            "color": "#aaaaaa"
+            }
+        },
+        "clients_full_list": {
+            "QScrollArea": {
+                "border": "none",
+                "background-color": "#FAFAFA",
+                "border-radius": "6px"
+            },
+            "QScrollBar:vertical": {
+                "border": "none",
+                "background": "#f0f0f0",
+                "width": "12px",
+                "margin": "4px 0px 4px 0px",
+                "border-radius": "6px"
+            },
+            "QScrollBar::handle:vertical": {
+                "background": "#cccccc",
+                "min-height": "20px",
+                "border-radius": "6px"
+            },
+            "QScrollBar::handle:vertical:hover": {
+                "background": "#aaaaaa"
+            },
+            "QScrollBar::add-line:vertical": {
+                "height": "12px",
+                "subcontrol-position": "bottom",
+                "subcontrol-origin": "margin",
+                "border": "none",
+                "background": "#dddddd",
+                "border-top-left-radius": "6px",
+                "border-top-right-radius": "6px"
+            },
+            "QScrollBar::sub-line:vertical": {
+                "height": "12px",
+                "subcontrol-position": "top",
+                "subcontrol-origin": "margin",
+                "border": "none",
+                "background": "#dddddd",
+                "border-bottom-left-radius": "6px",
+                "border-bottom-right-radius": "6px"
+            },
+            "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical": {
+                "width": "6px",
+                "height": "6px",
+                "background": "transparent"
+            },
+            "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical": {
+                "background": "none"
+            }
+        },
+        "client_panel_frame": {
+            "KFrame": {
+                "border": "2px solid #CCCCCC",
+                "border-radius": "10px",
+                "background-color": "#F8F9FA",
+                "padding": "12px"
+            }
+        },
+        "client_panel_title": {
+            "KLabel": {
+                "font-size": "18px",
+                "font-weight": "bold",
+                "color": "#555555"
+            }
+        },
+        "clientpanel_status_label": {
+            "KLabel": {
+                "font-size": "14px",
+                "font-weight": "bold",
+                "color": "#555"
+            }
+        },
+        "client_panel_status": {
+            "KLabel": {
+                "font-size": "12px",
+                "color": "#555555"
+            }
+        },
+        "client_panel_profile": {
+            "KLabel": {
+                "font-size": "13px",
+                "color": "#888888",
+                "font-style": "italic"
+            }
+        },
+        "client_panel_favorite": {
+            "KCheckBox": {
+                "font-size": "13px",
+                "background-color": "#F8F9FA",
+                "color": "#222222",
+                "padding" : "0px"
+            },
+            "KCheckBox:hover" : {
+                "background-color": "#DDDDDD"
+            },
+            "KCheckBox:disabled" : {
+                "color": "rgba(0, 0, 0, 0.4)",
+                "background-color": "rgba(200, 200, 200, 0.5)",  
+                "opacity": 0.6
+            },
+            "KCheckBox::indicator": {
+                "background-color": "#F8F9FA",
+                "width": "32px",
+                "height": "32px"
+            },
+            "KCheckBox::indicator:unchecked": {
+                "image": "url(config/icons/star-outline.png)"
+            },
+            "KCheckBox::indicator:checked": {
+                "image": "url(config/icons/star-filled.png)"
+            }
+        },
+        "client_panel_last_action": {
+            "KLabel": {
+                "font-size": "13px",
+                "color": "#777777"
+            }
+        },
+        "clientpanel_block": {
+            "KFrame": {
+                "background-color": "#F8F9FA",
+                "border": "1px solid #D0D0D0",
+                "border-radius": "6px",
+                "padding": "8px",
+                "margin": "4px 0"
+            }
+        },
+        "clientpanel_block_delete": {
+            "KFrame": {
+                "background-color": "#F5F5F5",
+                "border": "1px dashed #D9534F",
+                "border-radius": "6px",
+                "padding": "8px",
+                "margin": "6px 0"
+            }
+        },
+        "clientpanel_action_button": {
+            "KButton": {
+                "color" : "#555",
+                "font-size": "10px",
+                "font-weight": "bold",
+                "padding": "6px 12px",
+                "border-radius": "4px",
+                "border": "1px solid #DDD",
+                "background-color": "#E9ECEF"
+            },
+            "KButton:hover": {
+                "background-color": "#DEE2E6"
+            },
+            "KButton:disabled" : {
+                "color": "rgba(0, 0, 0, 0.2)",
+                "background-color": "rgba(200, 200, 200, 0.5)",  
+                "opacity": 0.6
+            }
+        },
+        "delete_button" : {
+            "border": "1px solid #CCCCCC",
+            "border-radius": "5px",
+            "color" : "red",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "font-weight" : "bold",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "delete_button:hover" : {
+            "background-color": "#DDDDDD"
+        },
+        "delete_button:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        },
+        "switch_view_button": {
+            "KButton": {
+                "font-size": "20px",
+                "font-weight": "bold",
+                "color": "#444",
+                "background-color": "transparent",
+                "border": "none"
+            },
+            "KButton:hover": {
+                "color": "#000",
+                "background-color": "#eee",
+                "border-radius": "4px"
+            }
+        },
+        "favcard_frame": {
+            "KFrame": {
+                "border": "2px solid #ccc",
+                "border-radius": "8px",
+                "padding": "4px",
+                "background-color": "#f9f9f9"
+            },
+            "KFrame:hover": {
+                "background-color": "#f1f1f1"
+            }
+        },
+        "full_list_container": {
+            "KFrame": {
+                "background-color": "#EEF1F4",
+                "border": "none",
+                "border-radius": "12px",
+                "padding": "8px"
+            }
+        },
+        "fullcard_frame": {
+            "KFrame": {
+                "border": "2px solid #ccc",
+                "min-height" : "128px",
+                "border-radius": "8px",
+                "padding": "6px 10px",
+                "background-color": "#ffffff"
+            },
+            "KFrame:hover": {
+                "background-color": "#DDE1E6"
+            },
+            "KFrame[selected=\"true\"]" : {
+                "border": "2px solid #888C94",
+                "background-color": "#E0E4E7",
+                "border-radius": "8px",
+                "padding": "4px"
+            }
+        },
+        "fullcard_name": {
+            "KLabel": {
+                "font-size": "16px",
+                "font-weight": "bold",
+                "color": "#222222"
+            }
+        },
+        "fullcard_autostarting": {
+            "KLabel": {
+                "color": "#666666",
+                "font-style": "italic",
+                "font-size": "13px"
+            }
+        },
+        "fullcard_status": {
+            "KLabel": {
+                "font-size": "14px",
+                "font-weight": "bold",
+                "color": "#333",
+                "padding": "4px"
+            }
+        },
+        "fullcard_fav": {
+            "KLabel": {
+                "font-size": "18px",
+                "color": "#f9c74f"
+            }
+        },
+        "favcard_name": {
+            "KLabel": {
+                "font-size": "14px",
+                "font-weight": "bold",
+                "color": "#333"
+            }
+        },
+        "favcard_toggle_running": {
+            "KButton": {
+                "background-color": "transparent",
+                "border": "none",
+                "font-size": "18px",
+                "margin": "2px 6px"
+            },
+            "KButton:hover": {
+                "background-color": "#e0e0e0",
+                "border-radius": "4px"
+            }
+        },
+        "favcard_autostarting": {
+            "KLabel": {
+                "color": "#666666",
+                "font-style": "italic",
+                "font-size": "12px"
+            }
+        },
+        "favcard_status": {
+            "KLabel": {
+                "font-size": "18px",
+                "margin": "2px 0px"
+            }
+        }
+
+    },
+    "dark": {
+        "default" : {
+            "background-color": "#202020",
+            "color": "#E0E0E0",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #444444",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "default:hover" : {
+            "background-color": "#505050"
+        },
+        "root_window": {
+            "QWidget#central_frame": {
+                "background-color": "#FAFAFA",
+                "border-radius": "10px"
+            },
+            "KRootWindow": {
+                "background-color": "transparent"
+            }
+        },
+        "status_bar": {
+            "QStatusBar": {
+                "background-color": "#E6E6E6",
+                "color": "#333333",
+                "font-family": "Segoe UI, Arial",
+                "padding": "6px 10px",
+                "border-top": "1px solid #CCCCCC",
+                "border-bottom-left-radius": "8px",
+                "border-bottom-right-radius": "8px",
+                "min-height": "20px"
+            },
+            "QStatusBar::item": {
+                "border": "none"                       
+            }
+        },
+        "tabber" : {
+            "background-color": "#FAFAFA",
+            "color": "#222222",
+            "font-size": "14px",
+            "QTabBar": {
+                "background-color": "#D0D0D0"
+            },
+            "QTabBar::tab:selected": {
+                "background-color": "#8888FF",
+                "color": "#FFFFFF"
+            },
+            "QScrollBar:vertical": {
+                "background-color": "#FAFAFA"
+            },
+            "QScrollBar::handle:vertical": {
+                "background-color": "#D0D0D0"
+            }
+        },
+        "tabber:hover": {
+            "background-color": "#EEEEEE"
+        },
+        "menu_bar" : {
+            "QFrame": {
+                "background-color": "transparent",
+                "border": "none"
+            },
+            "background-color": "#F0F0F0",
+            "color": "#222222",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #CCCCCC",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "0px"
+        },
+        "menu_bar:hover" : {
+            "background-color": "#DDDDDD",
+            "border-radius": "5px"
+        },
+        "menu_bar:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        },
+        "default_button" : {
+            "background-color": "#202020",
+            "color": "#E0E0E0",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "border": "1px solid #444444",
+            "border-radius": "5px",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "default_button:hover" : {
+            "background-color": "#505050"
+        },
+        "default_button:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+
+        },
+        "delete_button" : {
+            "border": "1px solid #CCCCCC",
+            "border-radius": "5px",
+            "color" : "red",
+            "font-family": "Arial",
+            "font-size": "12px",
+            "font-weight" : "bold",
+            "padding": "6px",
+            "margin": "6px"
+        },
+        "delete_button:hover" : {
+            "background-color": "#DDDDDD"
+        },
+        "delete_button:disabled" : {
+            "color": "rgba(0, 0, 0, 0.4)",
+            "background-color": "rgba(200, 200, 200, 0.5)",  
+            "opacity": 0.6
+        }
+    }
+}
