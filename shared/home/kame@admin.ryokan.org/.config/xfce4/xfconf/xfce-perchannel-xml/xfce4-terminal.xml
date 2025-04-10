@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-terminal" version="1.0">
+  <property name="font-use-system" type="bool" value="false"/>
+  <property name="misc-tab-close-middle-click" type="bool" value="false"/>
+  <property name="misc-middle-click-opens-uri" type="bool" value="true"/>
+</channel>

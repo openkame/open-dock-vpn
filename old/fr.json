@@ -1,0 +1,210 @@
+{
+    "LOG_MESSAGES" : {
+        "already_running": "⚠️ Une autre instance est déjà en cours (PID: {processid}).",
+        "xhost_enabled": "✅ xhost activé avec succès !",
+        "xhost_display_error": "⚠️ DISPLAY non défini, impossible d'activer xhost.",
+        "xhost_error": "❌ Erreur lors de l'activation de xhost : {error}",
+        "structure_check": "🔍 Vérification de la structure du projet...",
+        "structure_ok": "✅ Structure correcte !",
+        "close_application": "🛑 Fermeture de l'application...",
+
+        "json_read_error": "",
+        "client_not_found": "⚠️ Client {client_name} introuvable sur le disque. Suppression de la liste.",
+        "config_missing": "⚠️ Client {client_name} : `config.json` local manquant ! 🚨 Statut erreur.",
+        "client_adding": "➕ Ajout automatique du client {client_name} dans `config.json` global.",
+        "config_ignored": "⚠️ Client {client_name} : `config.json` local manquant ! 🚨 Ignoré.",
+        "profile_missing": "⚠️ Le profil `{profile_name}` est manquant.",
+
+        "file_mustexist": "❌ ERREUR : Le fichier {path} doit exister !",
+        "folder_mustexist": "❌ ERREUR : Le dossier {path} doit exister !",
+        "file_created": "📄 Création du fichier : {path}",
+        "folder_created": "📂 Création du dossier : {path}",
+
+        "dock_files_generated": "✅ Fichiers générés pour {client_name} dans {client_dir}",
+
+        "delete_vpn": "🗑 Suppression du VPN : {client_name}",
+
+        "global_open_shell": "🛠️ Ouverture du shell sur {client_name}",
+        "client_open_shell": "🛠️ Ouverture du shell\nCommande Docker: ",
+        "global_open_shell_error": "❌ Impossible d'ouvrir le Shell sur {client_name}.\n{error}",
+        "client_open_shell_error": "❌ Impossible d'ouvrir le Shell.\n{error}",
+
+        "global_open_chromium": "🌐 Ouverture de Chromium sur {client_name}.",
+        "client_open_chromium": "🌐 Ouverture de Chromium\nCommande Docker: ",
+        "global_open_chromium_error": "❌ Impossible d'ouvrir Chromium sur {client_name}.\n{error}",
+        "client_open_chromium_error": "❌ Impossible d'ouvrir Chromium.\n{error}",
+
+        "global_start_vpn": "🚀 Démarrage du VPN {client_name}",
+        "client_start_vpn": "🚀 Commande exécutée:\n",
+        "global_start_vpn_error": "❌ Erreur lors du démarrage du VPN {client_name}.\n{error}",
+        "client_start_vpn_error": "❌ Erreur lors du démarrage:\n{error}",
+        "vpnpanel_global_start_success": "✅ VPN {client_name} démarré.",
+        "vpnpanel_client_start_success": "✅ VPN démarré.",
+
+        "global_stop_vpn": "⛔ Arrêt du VPN {client_name}",
+        "client_stop_vpn": "⛔ Commande exécutée:\n",
+        "global_stop_vpn_error": "❌ Erreur lors de l'arrêt du VPN {client_name}.\n{error}",
+        "client_stop_vpn_error": "❌ Erreur lors de l'arrêt:\n{error}",
+        "vpnpanel_global_stop_success": "🛑 VPN {client_name} arrêté.",
+        "vpnpanel_client_stop_success": "🛑 VPN arrêté.",
+
+        "client_log_stdout_label" : "📜 Sortie de la commande :",
+        "client_log_append_error" : "⚠️ Erreur : Impossible d'afficher les logs pour {client_name} (onglet introuvable).",
+        "client_log_clear_error": "⚠️ Erreur : Aucune log existante pour {client_name} (onglet introuvable).",
+
+        "client_added": "✅ Client VPN {client_name} ajouté avec succès avec le profil `{profile}`"
+    },
+
+    "THEMES" : {
+        "system" : "🖥️ Système",
+        "light" : "🌞 Clair",
+        "dark" : "🌙 Sombre"
+    },
+    
+    "UI_MAIN" : {
+        "app_title": "🌍 VPN Manager - Full",
+        "label_clients_name" : "Clients",
+        "label_settings_name" : "Paramètres",
+        "label_add_client" : "➕ Ajouter un VPN",
+        "label_console_logs" : "📝 Console Logs",
+        "label_manage_profiles" : "🧩 Gérer les Profils VPN",
+        "label_quit_app" : "❌ Quitter",
+        "label_theme_mode" : "🌗 Mode du Thème",
+        "label_theme_selector" : "🎨 Thèmes",
+        "label_lang_selector" : "🌍 Changer la Langue",
+        "label_tooltip_toggler" : "📝 Activer/Désactiver les Infos Bulles",
+        "label_view_switcher" : "🔄",
+
+
+        "label_compact_title" : "🌍 VPN Compact View",
+        "label_no_clients" : "📭 No VPN clients yet"
+
+    },
+
+    "client_panel" : {
+        "label_client_name" : "🧅 Client - {client_name}",
+        "label_profile": "🔧 Profil : {profile_name}",
+        "label_no_profile" : "⚠️ Profil invalide",
+        "label_checkbox_autostart" : "Lancer le client VPN au démarrage du PC ?",
+        "label_last_action" : "📦 Dernière Action: {action}",
+        "label_shell": "🖥️ Terminal",
+        "label_chromium": "🌍 Navigateur Chrome",
+        "label_start_vpn": "▶️ Lancer le VPN",
+        "label_stop_vpn": "⏹ Arrêter le VPN",
+        "label_refresh_vpn": "🔁 Rafraîchir le VPN",
+        "label_delete_vpn": "🗑️ Supprimer VPN",
+        "label_checking": "⏳ Vérification en cours...",
+        "label_error": "⚠️ Erreur",
+        "msg_title_vpn_refresh_warning": "⚠️ Rafraîchir l’image",
+        "msg_content_vpn_refresh_warning": "Le VPN est actuellement en cours d'exécution. Voulez-vous le redémarrer après le rafraîchissement ?",
+        "msg_title_vpn_delete_error": "🚫 Suppression impossible",
+        "msg_content_vpn_delete_error": "Ce VPN est actuellement en cours d'exécution. Arrêtez-le avant de le supprimer.",
+        "msg_title_vpn_delete_confirm": "⚠️ Supprimer ce VPN",
+        "msg_content_vpn_delete_confirm": "Voulez-vous vraiment supprimer `{client_name}` ? Cette action est irréversible.",
+        "msg_title_vpn_deleted": "✅ Suppression réussie",
+        "msg_content_vpn_deleted": "✅ VPN `{client_name}` supprimé avec succès."
+    },
+
+    "UI_ADD_CLIENT" : {
+        "window_name": "➕ Ajouter un Client VPN",
+        "button_select_ovpn": "📂 Sélectionner un fichier .ovpn",
+        "label_vpn_user": "Utilisateur :",
+        "label_vpn_name": "Nom du VPN (ex: admin) :",
+        "label_domain_name": "Domaine (ex: ryokan.org) :",
+        "label_profile_list": "Profil VPN :",
+        "label_profile_select": "⚠️ Sélectionnez un profil...",
+        "button_submit": "✅ Ajouter le VPN",
+
+        "msg_title_error": "⚠️ Erreur",
+        "msg_content_missing_fields_error": "Tous les champs doivent être remplis !",
+        "msg_title_select_ovpn": "Sélectionner un fichier OVPN",
+        "msg_type_select_ovpn": "Fichiers OVPN (*.ovpn)",
+        "msg_title__vpn_already_exists": "⚠️ VPN déjà existant",
+        "msg__content_vpn_already_exists": "Ce VPN existe déjà ! Voulez-vous le mettre à jour ?"
+    },
+
+    "UI_MANAGE_PROFILES" : {
+        "_comment" : "# Manage Profiles",
+        "window_name": "📂 VPN Manager: Gestion des Profils VPN",
+        "button_add_profile": "➕ Ajouter un Profil",
+        "button_rename_profile": "✏️ Renommer",
+        "button_delete_profile": "🗑 Supprimer un Profil",
+        "button_refresh_profile_list": "🔄 Rafraîchir",   
+
+        "msg_add_profile_select": "Sélectionner un dossier de profil",
+        "msg_title_add_profile_already_exist": "⚠️ Erreur",
+        "msg_content_add_profile_already_exist": "Le profil `{profile_name}` existe déjà.",
+        "msg_title_profile_created": "✅ Profil ajouté",
+        "msg_content_profile_created": "Le profil `{profile_name}` a été ajouté avec succès.",
+
+        "msg_title_cannot_delete_profile": "🚫 Suppression impossible",
+        "msg_content_cannot_delete_profile": "`{profile_name}` est utilisé par {clients}.",
+        "msg_title_warning_delete_profile": "⚠️ Supprimer le Profil",
+        "msg_content_warning_delete_profile": "Êtes-vous sûr de vouloir supprimer `{profile_name}` ?",
+        "msg_title_profile_deleted": "✅ Profil supprimé.",
+        "msg_content_profile_deleted": "✅ le profil `{profile_name}` a été supprimé.",
+
+        "msg_title_profile_rename": "Renommer le Profil",
+        "msg_content_profile_rename": "Entrez le nouveau nom pour `{profile_name}` :",
+        "msg_title_profile_rename_error": "⚠️ Erreur",
+        "msg_content_profile_rename_error": "Un profil nommé `{profile_name}` existe déjà.",
+        "msg_title_profile_rename_warning": "⚠️ Confirmer le renommage",
+        "msg_content_profile_rename_warning": "Le profil `{profile_name}` sera renommé en `{new_name}`. \nCe changement affectera {nbvpn} client(s) VPN.",
+        "msg_title_profile_rename_success": "✅ Profil renommé",
+        "msg_content_profile_rename_success": "Le profil `{profile_name}` a été renommé en `{new_name}`."
+    },
+
+    "UI_CONSOLE_LOGS" : {
+        "window_name": "📝 VPN Manager: Journaux des Logs",
+        "button_purge_global_logs": "🗑 Purger les logs",
+        "button_purge_client_logs": "🗑 Purger `{client_name}`",
+        "label_global_log": "📜 Log Globale",
+        "label_client_log": "🔹 {client_name}"
+    },
+
+    "UI_SYSTRAY" : {
+        "button_systray_quit": "❌ Quitter"
+    },
+
+    "ACTIONS" : {
+        "add_client" : "Ajout d'un nouveau client {client_name}",
+        "delete_client" : "Suppression du client {client_name}",
+        "add_profile" : "Ajout d'un profil {client_name}",
+        "rename_profile" : "Rennomer le profil {profile_name}",
+        "delete_profile" : "Suppression du profil {profile_name}",
+        "purge_logs" : "Purge des logs {logs_tab}",
+        "start_vpn" : "Demarrage du VPN",
+        "stop_vpn" : "Arrêt du VPN",
+        "refresh_vpn" : "Rafraîchissement de l'image Docker",
+
+        "add_success" : "📅 Ajouté le {date}",
+        "delete_success" : "📅 Supprimé le {date}",
+        "rename_success" : "📅 Renommé le {date}",
+        "purge_success" : "📅 Purgées le {date}",
+        "start_success" : "📅 Démarré le {date}",
+        "stop_success" : "📅 Arrêté le {date}",
+        "refresh_success" : "📅 Rafraîchie le {date}"
+    },
+
+    "MANAGER_STATUS" : {
+        "ready": "🌍 VPN Manager prêt."
+    },
+
+    "OVPN_STATUS" : {
+        "nofile": "⚠️ Aucun fichier sélectionné.",
+        "selected": "✅ {file_name} sélectionné."
+    },
+
+    "PROFILE_STATUS" : {
+        "missing": "⚠️ Manquant",
+        "ok": "✅ En fonction"
+    },
+
+    "VPN_STATUS" : {
+        "connected": "🟢 Connecté",
+        "disconnected": "🔴 Déconnecté",
+        "error": "⚠️ Erreur",
+        "checking": "⏳",
+        "deleted": "🗑 Supprimé"
+    }
+}

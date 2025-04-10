@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=VPN Manager
+Exec="/home/kame/local/projects/vpnclient/lib/venv/bin/python3" "/home/kame/local/projects/vpnclient/lib/vpn-manager.py"
+Icon=/home/kame/local/projects/vpnclient/config/icons/vpn-manager.png
+Terminal=false
