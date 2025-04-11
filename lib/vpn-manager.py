@@ -20,9 +20,6 @@ def main():
     app = QApplication(sys.argv)
     # 🏗️ Création de la fenêtre principale
     controller = KAppController()
-    # window = MainWindow()
-    # window.show()
-    # theme_manager.load_theme()
     sys.exit(app.exec())
 
 if __name__ == "__main__":

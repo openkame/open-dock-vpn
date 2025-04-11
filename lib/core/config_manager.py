@@ -16,10 +16,11 @@ class ConfigManager:
         
     def _load_configs(self):
         self._global_config = self._load_json_file(GLOBAL_CONFIG_FILE)
-        for client_name in os.listdir(CLIENTS_DIR):
-            config_path = self._get_client_config_path(client_name)
-            if os.path.exists(config_path):
-                self._clients_configs[client_name] = self._load_json_file(config_path)
+        if os.path.exists(CLIENTS_DIR):
+            for client_name in os.listdir(CLIENTS_DIR):
+                config_path = self._get_client_config_path(client_name)
+                if os.path.exists(config_path):
+                    self._clients_configs[client_name] = self._load_json_file(config_path)
     
     # 🔗 Configuration spécifique à un client
     def _get_client_config_path(self, client_name):
@@ -78,6 +79,7 @@ class ConfigManager:
     def hasValue(self, path_enum: GlobalConfig | ClientConfig | ConfigPath, client_name: str | None = None) -> bool:
         value = self.getValue(path_enum, client_name=client_name)
         return value is not None
+    
     def addValue(self, path_enum: GlobalConfig | ClientConfig | ConfigPath, client_name: str | None = None):
         """➕ Ajoute une valeur vide (dict) seulement si elle n'existe pas encore"""
         if not self.hasValue(path_enum, client_name):
@@ -202,8 +204,6 @@ class ConfigManager:
 
         if self.getValue(GlobalConfig.CLIENTS) == None:
             self.setValue(GlobalConfig.CLIENTS, {})
-        #if "clients" not in self._global_config:
-        #    self._global_config["clients"] = {}
 
         existing_clients = set(os.listdir(CLIENTS_DIR))  # 📌 Liste des dossiers clients
 
@@ -213,20 +213,18 @@ class ConfigManager:
             if not os.path.exists(client_path):  # ❌ Dossier client supprimé ?
                 self.manager.logger.write(Label.LOG_CLIENT_NOT_FOUND(client_name=client_name))
                 self.deleteValue(GlobalConfig.CLIENT(client_id=client_name))
-                #del self._global_config["clients"][client_name]
             else:
                 if not self._clients_configs[client_name]:
                     self.manager.logger.write(Label.LOG_CONFIG_MISSING(client_name=client_name))
                     self.setValue(GlobalConfig.CLIENT_ERROR(client_id=client_name), True)
-                    #self._global_config["clients"][client_name]["error"] = True
+
                 else:
                     self.setValue(GlobalConfig.CLIENT_ERROR(client_id=client_name), False)
-                    #self._global_config["clients"][client_name]["error"] = False
+
 
         # 🆕 Ajout des clients non répertoriés
         for client_name in existing_clients:
             if client_name and not self.hasValue(GlobalConfig.CLIENT(client_id=client_name)):
-            #if client_name not in self.global_config["clients"]:
                 if self._clients_configs[client_name]:  # ✅ Un `config.json` valide existe ?
                     self.manager.logger.write(Label.LOG_CLIENT_ADDING(client_name=client_name))
                     self.addValue(GlobalConfig.CLIENTS,client_name)
@@ -235,20 +233,14 @@ class ConfigManager:
                     self.setValue(GlobalConfig.CLIENT_DOMAIN(client_id=client_name), client_name.split("@")[1].split(".")[1])
                     self.setValue(GlobalConfig.CLIENT_FAVORITE(client_id=client_name), False)
                     self.setValue(GlobalConfig.CLIENT_ERROR(client_id=client_name), False)
-                    # self.global_config["clients"][client_name] = {
-                    #     "user": client_name.split("@")[0],
-                    #     "vpn": client_name.split("@")[1].split(".")[0],
-                    #     "domain": client_name.split("@")[1].split(".")[1],
-                    #     "error": False
-                    # }
+
                 else:
                     self.manager.logger.write(Label.LOG_CONFIG_IGNORED(client_name=client_name))
 
-        # 💾 Sauvegarde finale des corrections
-        #self._save_global_config()
-    
     def verify_profiles(self):
-        """ 🔍 Vérifie que les profils VPN dans `config.json` sont valides et corrige si besoin """           
+        """ 🔍 Vérifie que les profils VPN dans `config.json` sont valides et corrige si besoin """
+        if self.getValue(GlobalConfig.PROFILES) == None:
+            self.setValue(GlobalConfig.PROFILES, {})
         for profile_name in self._global_config["profiles"]:
             profile_path = os.path.join(TEMPLATES_DIR, profile_name)
 
@@ -256,9 +248,6 @@ class ConfigManager:
             if not os.path.exists(profile_path):
                 self.manager.logger.write(Label.LOG_PROFILE_MISSING(profile_name=profile_name))
                 self.setValue(GlobalConfig.PROFILE_ERROR(profile_id=profile_name), True)
-                #self._global_config["profiles"][profile_name]["error"] = True
             else:
                 self.setValue(GlobalConfig.PROFILE_ERROR(profile_id=profile_name), False)
-                #self._global_config["profiles"][profile_name]["error"] = False
 
-        #self._save_global_config()

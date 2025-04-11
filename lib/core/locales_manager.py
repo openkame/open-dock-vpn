@@ -61,14 +61,11 @@ class LocalesManager:
     def load_saved_language(self):
         """ 💾 Charge la langue enregistrée dans `config.json` """
         return self.manager.config.getValue(GlobalConfig.LANGUAGE)
-        #return self.manager.config.get_global_config().get("language", APP_DEFAULT_LOCALE)
 
     def save_selected_language(self, lang_code):
         """ 💾 Sauvegarde la langue sélectionnée dans `config.json` """
         if lang_code != self.manager.config.getValue(GlobalConfig.LANGUAGE):
             self.manager.config.setValue(GlobalConfig.LANGUAGE, lang_code)
-        # self.manager.config.get_global_config()["language"] = lang_code
-        # self.manager.config.save_global_config()
     
     def tr(self, text: str | Label | dict):
         r"""

@@ -20,10 +20,14 @@ class ThemeManager:
         self.theme_data = None
     
     def initialize(self):
+        if not self.config.hasValue(GlobalConfig.THEME_NAME):
+            self.config.setValue(GlobalConfig.THEME_NAME, "default")
         self.current_theme = self.config.getValue(GlobalConfig.THEME_NAME)
+
+        if not self.config.hasValue(GlobalConfig.THEME_MODE):
+            self.config.setValue(GlobalConfig.THEME_MODE, "light")
         self.current_mode = self.config.getValue(GlobalConfig.THEME_MODE)
-        # self.current_theme = self.config.get_global_config().get("theme", {}).get("name", APP_DEFAULT_THEME)
-        # self.current_mode = self.config.get_global_config().get("theme", {}).get("mode", "system")
+        
         self.themes = self.load_available_themes()
         self.theme_data = self.load_theme()
         # 📡 Écoute des signaux
@@ -71,9 +75,6 @@ class ThemeManager:
         # 💾 Sauvegarde dans la config globale
         if theme_name != self.config.getValue(GlobalConfig.THEME_NAME): self.config.setValue(GlobalConfig.THEME_NAME, theme_name)
         if mode != self.config.getValue(GlobalConfig.THEME_MODE): self.config.setValue(GlobalConfig.THEME_MODE, mode)
-        # self.config.global_config["theme"] = {"name": theme_name, "mode": mode}
-        # self.config.save_global_config()
-
     
     def is_system_dark(self):
         """ 🌍 Vérifie si le système est en mode sombre via QPalette """
