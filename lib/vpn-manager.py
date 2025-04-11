@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-import sys
+#!/usr/bin/env python
+import sys, io, os
 from core.manager import manager
 from PySide6.QtWidgets import QApplication
 from app.kapp_controller import KAppController

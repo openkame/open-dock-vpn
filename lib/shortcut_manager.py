@@ -1,4 +1,4 @@
-import os
+import os, sys, ctypes
 import platform
 import subprocess
 from core.env import BASE_DIR, APP_ICON_PATH
@@ -73,28 +73,57 @@ Terminal=false
 
 
 def create_windows_shortcut():
-    """ 🏗️ Crée un raccourci `.lnk` sous Windows """
+    """🏗️ Crée un raccourci `.lnk` sous Windows avec venv, UTF-8 et exécution admin"""
+
     try:
-        import winshell
         from win32com.client import Dispatch
     except ImportError:
-        print("⚠️ Impossible de créer le raccourci Windows : module `winshell` manquant.")
+        print("⚠️ Le module `pywin32` est requis pour créer un raccourci Windows.")
         return
 
     shortcut_path = os.path.join(BASE_DIR, "VPN-Manager.lnk")
+
     if os.path.exists(shortcut_path):
         return  # ✅ Déjà existant
 
+    # 👉 Chemin du pythonw.exe dans le venv
+    venv_pythonw = os.path.join(BASE_DIR, "lib", "venv", "Scripts", "pythonw.exe")
+    script_path = os.path.join(BASE_DIR, "lib", "vpn-manager.py")
+    icon_path = os.path.join(BASE_DIR, "vpn-manager.ico")
+
+    # 🎯 Crée le raccourci .lnk
     shell = Dispatch("WScript.Shell")
     shortcut = shell.CreateShortcut(shortcut_path)
-    shortcut.TargetPath = get_python_command()
-    shortcut.Arguments = f'"{BASE_DIR}\\lib\\vpn-manager.py"'
+    shortcut.TargetPath = venv_pythonw
+    shortcut.Arguments = f'-Xutf8 "{script_path}"'
     shortcut.WorkingDirectory = BASE_DIR
-    shortcut.IconLocation = APP_ICON_PATH  # Icône générique
+    shortcut.IconLocation = icon_path if os.path.exists(icon_path) else venv_pythonw
+    shortcut.Description = "Lance VPN-Manager avec privilèges admin"
     shortcut.Save()
-    WINDOWS_MENU_PATH = os.path.join(os.getenv('APPDATA'), "Microsoft", "Windows", "Start Menu", "Programs")
-    print(f"🛠️ Pour ajouter au menu, placez le raccourci dans : {WINDOWS_MENU_PATH}")
-    print("🛠️ Pour un démarrage automatique sous Windows, placez ce raccourci dans `%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`")
+
+##    # 🛡️ Active "Exécuter en tant qu'administrateur" (bit 6 à 1)
+##    try:
+##        with open(shortcut_path, "rb") as f:
+##            lnk_bytes = bytearray(f.read())
+##
+##        # Bit 6 du byte 0x15 (21) = "Run as administrator"
+##        lnk_bytes[0x15] = lnk_bytes[0x15] | 0x20
+##
+##        with open(shortcut_path, "wb") as f:
+##            f.write(lnk_bytes)
+##
+##        print(f"✅ Raccourci créé avec succès ➜ {shortcut_path}")
+##
+##    except Exception as e:
+##        print(f"❌ Impossible d’activer l’exécution en admin : {e}")
+
+    # 📌 Info utilisateur
+    windows_menu = os.path.join(os.getenv('APPDATA'), "Microsoft", "Windows", "Start Menu", "Programs")
+    startup_menu = os.path.join(windows_menu, "Startup")
+    print(f"🛠️ Pour l’ajouter au menu démarrer : copier vers ➜ {windows_menu}")
+    print(f"🚀 Pour un démarrage auto : ➜ {startup_menu}")
+
+
 
 
 def create_mac_shortcut():
