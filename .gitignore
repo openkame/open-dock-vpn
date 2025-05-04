@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.env
+.env
+.venv/
+build/
+dist/
+*.log
+.DS_Store
+
+# Qt Designer temp files
+*.bak
+*.autosave
+
+# VSCode
+.vscode/
+.settings/
+
+# PyInstaller
+*.spec
+
+# User config
+*.sqlite3
+*.db
+*.cfg
+*.ini
+/secrets/
+/certs/
+
+# Generated
+*.qrc
+*.qmlc
+*.qrc
+
+# App
+config/config.json
+lib/venv/
+lib/*/__pycache__/
+shared/clients
+shared/home
+logs/
+tests/
+old/
+# Shortcut Files
+*.desktop
+*.lnk
+*.alias
