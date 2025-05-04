@@ -1,4 +1,4 @@
-import os
+import os, sys
 import platform
 import subprocess
 import psutil
@@ -14,6 +14,41 @@ if platform.system() == "Windows":
     LOCKFILE = os.path.join(os.getenv("TEMP"), "vpn_manager.lock")
 else:
     LOCKFILE = "/tmp/vpn_manager.lock"
+
+def get_docker_cmd():
+    system = platform.system()
+    if system == "Windows":
+        return ["wsl", "-d", "vpn-manager", "docker"]
+    else:
+        return ["docker"]
+    
+def convert_path_to_wsl(path: str) -> str:
+    """Convertit un chemin Windows vers un chemin accessible depuis WSL"""
+    if platform.system() != "Windows":
+        return path  # Pas besoin de conversion sous Linux/macOS
+
+    path = path.replace("\\", "/")
+    # Appelle `wsl wslpath` pour convertir le chemin
+    try:
+        result = subprocess.run(
+            ["wsl", "-d", "vpn-manager", "wslpath", "-a", f"{path}"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            check=True
+        )
+        return result.stdout.strip()
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Erreur conversion chemin WSL : {e.stderr}")
+        return path
+
+def get_subprocess_no_window_args():
+    """🚫 No window on Windows when using subprocess (for pythonw.exe calls)"""
+    if sys.platform == "win32":
+        si = subprocess.STARTUPINFO()
+        si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        return {"startupinfo": si}
+    return {}
 
 def is_another_instance_running():
     """ 📌 Vérifie si une autre instance de VPN Manager tourne déjà. """

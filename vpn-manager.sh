@@ -21,7 +21,7 @@ echo -e "🚀 ${CYAN}VPN-Manager Wrapper ${BLUE}(Linux/macOS)${RESET}"
 OS=$(uname -s)
 echo -e "🔹 ${CYAN}OS détecté : ${BLUE}${OS}${RESET}"
 
-PRE_REQS=(python3 docker)
+PRE_REQS=(python3 wmdocker)
 MISSING_REQS=()
 
 check_missing() {
@@ -42,7 +42,7 @@ done
 if ! docker compose version &>/dev/null; then
     echo -e "🔸 ${YELLOW}Pré-requis manquant : docker compose${RESET}"
     if [ "$OS" = "Linux" ]; then
-        MISSING_REQS+=("docker-compose-plugin")
+        MISSING_REQS+=("docker-compose")
     else
         MISSING_REQS+=("docker-compose")
     fi

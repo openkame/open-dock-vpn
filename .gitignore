@@ -50,3 +50,9 @@ old/
 *.desktop
 *.lnk
 *.alias
+
+# Windows
+windows/ps
+
+# staandalone executable files
+installers

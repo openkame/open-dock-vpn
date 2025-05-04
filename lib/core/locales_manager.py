@@ -69,12 +69,15 @@ class LocalesManager:
     
     def tr(self, text: str | Label | dict):
         r"""
-        🔄 Return a translated string for widgets
+        🔄 Return a translated string or the raw string itself for widgets
             If text=str
              - Return the string as it
             If text=core.labels.Label
              - Convert it to a translated string
-             - apply formatting if more than a 'key' key is found i dict
+            If text=dict
+             - apply formatting
+             - 'key' key is a core.labels.Label
+             - All other keys are formatting keys for string.format() function
         """
         self._text = text # raw argument given named text for user friendly-reading purposes
         self._label = None # label enum name

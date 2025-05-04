@@ -1,15 +1,20 @@
 import subprocess
 import os
+
 from core.env import CLIENTS_DIR
 from core.manager import logger, tr, states, config
+from core.sys_utils import get_docker_cmd, get_subprocess_no_window_args, convert_path_to_wsl
 from core.labels import Label
 from core.configs import GlobalConfig, ClientConfig
 
+
 def is_vpn_container_running(container_name):
     """ Vérifie si un conteneur VPN est en cours d'exécution """
+    command = get_docker_cmd() + ["ps", "--filter", f"name={container_name}", "--format", "{{.Names}}"]
     result = subprocess.run(
-        ["docker", "ps", "--filter", f"name={container_name}", "--format", "{{.Names}}"],
-        capture_output=True, text=True
+        command,
+        capture_output=True, text=True,
+        **get_subprocess_no_window_args()
     )
     if container_name in result.stdout:
         return True
@@ -19,10 +24,10 @@ def is_vpn_container_running(container_name):
 def start_vpn_container(client_name):
     """ 🚀 Démarre un conteneur VPN avec logging et gestion des erreurs """
     compose_file = os.path.join(CLIENTS_DIR, client_name, "docker-compose.yaml")
-    command = ["docker", "compose", "-f", compose_file, "up", "-d"]
+    command = get_docker_cmd() + ["compose", "-f", convert_path_to_wsl(compose_file), "up", "-d"]
 
     try:
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, **get_subprocess_no_window_args())
         stdout, stderr = process.communicate()
         command_str = ' '.join(command)
 
@@ -62,12 +67,12 @@ def start_vpn_container(client_name):
 def stop_vpn_container(client_name, delete_image=False):
     """ ⛔ Arrête un conteneur VPN avec logging et gestion des erreurs """
     compose_file = os.path.join(CLIENTS_DIR, client_name, "docker-compose.yaml")
-    command = ["docker", "compose", "-f", compose_file, "down"]
+    command = get_docker_cmd() + ["compose", "-f", convert_path_to_wsl(compose_file), "down"]
     if delete_image:
         command.extend(["--rmi", "local"])
 
     try:
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, **get_subprocess_no_window_args())
         stdout, stderr = process.communicate()
         command_str = ' '.join(command)
 
@@ -107,12 +112,12 @@ def stop_vpn_container(client_name, delete_image=False):
 def open_vpn_container_shell(container_name, client_name):
     """ Ouvre un terminal graphique dans le conteneur VPN """
     username = client_name.split("@")[0]
-    command = [
-        "docker", "exec", "-d", "-u", username, "-w", f"/home/{username}", "-it", container_name,
+    command = get_docker_cmd() + [
+        "exec", "-d", "-u", username, "-w", f"/home/{username}", "-it", container_name,
         "xfce4-terminal", "--disable-server"
     ]
     try:
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, **get_subprocess_no_window_args())
         stdout, stderr = process.communicate()
         commandstr=' '.join(command)
         #  # 📝 Log de la commande exécutée
@@ -142,13 +147,13 @@ def open_vpn_container_shell(container_name, client_name):
 def open_vpn_container_chromium(container_name, client_name):
     """ Ouvre Chromium dans le conteneur VPN """
     username = client_name.split("@")[0]
-    command = [
-        "docker", "exec", "-d", "-u", username, "-w", f"/home/{username}", "-it", container_name,
+    command = get_docker_cmd() + [
+        "exec", "-d", "-u", username, "-w", f"/home/{username}", "-it", container_name,
         "chromium"
     ]
     commandstr=' '.join(command)
     try:
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, **get_subprocess_no_window_args())
         stdout, stderr = process.communicate()
         commandstr=' '.join(command)
         #  # 📝 Log de la commande exécutée

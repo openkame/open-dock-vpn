@@ -5,11 +5,16 @@ from PySide6.QtWidgets import QApplication
 from app.kapp_controller import KAppController
 
 from core.sys_utils import is_another_instance_running, create_lockfile, enable_xhost
+from core.exttools_manager import ExternalToolsManager
 
 def main():
     # 📌 Vérifie si une autre instance tourne déjà
     if is_another_instance_running():
         sys.exit(1)  # ⛔ Quitte immédiatement
+
+    ExternalToolsManager.is_vcxsrv_running()
+    ExternalToolsManager.is_wsl_running()
+    ExternalToolsManager.is_docker_running()
 
     # Initilisation de tous les managers
     manager.initialize()
