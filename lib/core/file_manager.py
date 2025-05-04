@@ -22,9 +22,9 @@ class FileManager:
             os.makedirs(path)
             self.logger.write(Label.LOG_FOLDER_CREATED(path=path))
 
-    def check_and_create_file(self, path, initContent=None):
+    def check_and_create_file(self, path, initContent=""):
         """ Vérifie et crée un fichier si nécessaire """
-        if not os.path.exists:
+        if not os.path.exists(path):
             if not initContent:
                 self.logger.write(Label.LOG_FILE_MUSTEXIST(path=path))
                 sys.exit(1)
@@ -38,7 +38,6 @@ class FileManager:
         self.logger.write(Label.LOG_STRUCTURE_CHECK)
         # 🛠 Création des dossiers manquants si nécessaire
         self.check_and_create_directory(TEMPLATES_DIR, must_exist=True)
-        self.check_and_create_directory(LOGS_DIR)
         self.check_and_create_directory(HOMES_DIR)
         self.check_and_create_directory(CLIENTS_DIR)
         self.check_and_create_directory(SKEL_DIR, must_exist=True)

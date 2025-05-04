@@ -8,7 +8,7 @@ class LogManager:
     def __init__(self, manager):
         self.manager = manager
         self.tr = self.manager.locales.tr
-        pass
+        if not os.path.exists(LOGS_DIR): os.makedirs(LOGS_DIR)
 
     def get_global_log_path(self):
         """ 🔗 Retourne le chemin du fichier log global """
