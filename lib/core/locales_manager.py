@@ -106,7 +106,7 @@ class LocalesManager:
 
     
     def _extract_tr_args(self, data: dict | None) -> tuple[str, dict]:
-        """Retourne une clé de traduction + kwargs pour tr() ou KLabel."""
+        """Retourne une clé de traduction + kwargs pour tr() si c'est un dict qui est passé en arg à tr."""
         if not data or not isinstance(data, dict):
             return "", {}
         key = data.get("key", "")
